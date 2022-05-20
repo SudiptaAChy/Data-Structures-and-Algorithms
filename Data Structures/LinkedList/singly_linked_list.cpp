@@ -1,5 +1,7 @@
 /**
  * http://www.shafaetsplanet.com/planetcoding/?p=2689
+ * https://www.geeksforgeeks.org/reverse-a-linked-list/
+ *
  * diff between array and linked list is memory sequence
  */
 
@@ -77,6 +79,20 @@ void edit_node(int pre_val, int new_val) // O(n)
     current->value = new_val;
 }
 
+void reverse() // O(n)
+{
+    node *current = root;
+    node *next = NULL, *previous = NULL;
+    while (current != NULL)
+    {
+        next = current->next;
+        current->next = previous;
+        previous = current;
+        current = next;
+    }
+    root = previous;
+}
+
 int main()
 {
     append(1);
@@ -91,6 +107,9 @@ int main()
     print();
 
     edit_node(4, 10);
+    print();
+
+    reverse();
     print();
 
     return 0;
