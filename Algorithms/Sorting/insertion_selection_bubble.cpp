@@ -8,7 +8,13 @@
 using namespace std;
 #define ll long long
 const int N = 2e5 + 5;
-
+void swap(int& a, int& b) {
+    if (&a != &b) {
+        a = a + b;
+        b = a - b;
+        a = a - b;
+    }
+}
 /**
  * select the minimum element and swap with the
  * very first element of the array
