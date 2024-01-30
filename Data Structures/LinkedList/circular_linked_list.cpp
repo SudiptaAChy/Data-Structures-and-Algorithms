@@ -38,6 +38,7 @@ void deleteNode(int position) {
     prev->next = current->next;
     if (current == tail) {
         tail = prev;
+        tail->next = head;
     }
     delete(current);
 }
